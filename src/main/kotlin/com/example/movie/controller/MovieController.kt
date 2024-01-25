@@ -15,7 +15,7 @@ import java.util.*
 @RestController
 class MovieController {
 
-    constructor(movieService: MovieService, movieMapper: MovieMapperImpl){
+    constructor(movieService: MovieService, movieMapper: MovieMapper){
         this.movieService = movieService
         this.movieMapper = movieMapper
     }
