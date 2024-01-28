@@ -1,10 +1,10 @@
 Basic SpringBoot application able to manage Movie library
 
-Tecnologies used:
+Technologies used:
 - SpringBoot
 - MongoDB
 
-Library used:
+Libraries used:
 - Mapstruct
 - Mongodb-driver-kotlin-sync
 - Mockk
