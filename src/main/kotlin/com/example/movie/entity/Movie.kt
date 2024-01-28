@@ -1,16 +1,17 @@
 package com.example.movie.entity
 
-import org.springframework.data.annotation.Id
+import org.bson.codecs.pojo.annotations.BsonCreator
+import org.bson.codecs.pojo.annotations.BsonId
+import org.bson.codecs.pojo.annotations.BsonProperty
 import org.springframework.data.mongodb.core.mapping.Document
 import java.time.LocalDate
 
+
 @Document
-    data class Movie(@Id val id: Long,
-                 val name: String,
-                 val date: LocalDate,
-                 val author: String,
-                 val actors: List<String>) {
+data class Movie @BsonCreator constructor(@BsonId val id: String?,
+                                          @BsonProperty("name") val name: String,
+                                          @BsonProperty("date")val date: LocalDate,
+                                          @BsonProperty("author")val author: String,
+                                          @BsonProperty("actors")val actors: List<String>) {
 
 }
-
-
