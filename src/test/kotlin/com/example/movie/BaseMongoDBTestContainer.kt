@@ -1,6 +1,8 @@
 package com.example.movie
 
+import com.example.movie.entity.Movie
 import com.mongodb.MongoClientSettings
+import com.mongodb.client.model.Filters
 import com.mongodb.kotlin.client.MongoClient
 import com.mongodb.kotlin.client.MongoDatabase
 import org.bson.codecs.configuration.CodecRegistries
@@ -8,6 +10,7 @@ import org.bson.codecs.configuration.CodecRegistry
 import org.bson.codecs.pojo.PojoCodecProvider
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.BeforeAll
+import org.junit.jupiter.api.BeforeEach
 import org.testcontainers.containers.MongoDBContainer
 import org.testcontainers.junit.jupiter.Container
 import org.testcontainers.junit.jupiter.Testcontainers
@@ -15,7 +18,10 @@ import org.testcontainers.junit.jupiter.Testcontainers
 
 @Testcontainers
 abstract class BaseMongoDBTestContainer {
-
+    @BeforeEach
+    fun init(){
+        database.getCollection<Movie>("movie").deleteMany(Filters.empty())
+    }
     companion object{
 
         @Container
