@@ -16,5 +16,4 @@ class MongoConfiguration(@Value("\${spring.data.mongodb.host}") val uri: String,
     }
 
 
-
 }

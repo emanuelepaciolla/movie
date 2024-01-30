@@ -3,7 +3,9 @@ package com.example.movie.repository
 import com.example.movie.entity.Movie
 import com.mongodb.client.model.Filters
 import com.mongodb.kotlin.client.MongoDatabase
+import org.springframework.stereotype.Repository
 
+@Repository
 class MovieRepositoryImpl(private val database: MongoDatabase) : MovieRepository {
 
     private fun movieCollection() = database.getCollection<Movie>("movie")
